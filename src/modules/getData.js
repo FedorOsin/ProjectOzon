@@ -1,10 +1,8 @@
 const getData = (str) => {
-    return fetch(
-            `https://projectozon-fddcb-default-rtdb.firebaseio.com/goods.json`
-        )
+    return fetch('https://serednitsky-db-default-rtdb.firebaseio.com/goods.json')
         .then((response) => {
-            return response.json();
+            return response.json()
         })
-};
+}
 
-export default getData;
+export default getData

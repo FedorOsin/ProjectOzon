@@ -1,36 +1,34 @@
 import getData from "./getData";
 import renderGoods from "./renderGoods";
-import {
-    categoryFilter
-} from "./filters";
+import {categoryFilter} from "./filters";
 
 const catalog = () => {
-    const btnCatalog = document.querySelector('.catalog-button > button');
-    const catalogModal = document.querySelector('.catalog');
-    const catalogModalItems = document.querySelectorAll('.catalog li');
+    const btnCatalog = document.querySelector('.catalog-button > button')
+    const catalogModal = document.querySelector('.catalog')
+    const catalogModalItems = document.querySelectorAll('.catalog li')
 
-    let isOpen = false;
+    let isOpen = false
 
     btnCatalog.addEventListener('click', () => {
-        isOpen = !isOpen;
+        isOpen = !isOpen
 
         if (isOpen) {
             catalogModal.style.display = 'block'
         } else {
             catalogModal.style.display = ''
-        };
-    });
+        }
+    })
 
     catalogModalItems.forEach(item => {
-        item.addEventListener('click', () => {
-            const text = item.textContent;
+      item.addEventListener('click', () => {
+          const text = item.textContent
 
-            getData().then((data) => {
-                renderGoods(categoryFilter(data, text));
-            });
-        });
-    });
+          getData().then((data) => {
+              renderGoods(categoryFilter(data, text))
+          })
+          console.log(item)
+      })
+    })
+}
 
-};
-
-export default catalog;
+export default catalog
